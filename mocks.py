@@ -1,7 +1,7 @@
 class Mocks():
     DHT11 = {
-        'temperature' : 27.5,
-        'humidity' : 45
+        'temperature': 27.5,
+        'humidity': 45
     }
 
     POSTS = [
@@ -11,16 +11,13 @@ class Mocks():
         {'id': 4, 'temperature': 25, 'humidity': 80},
         {'id': 5, 'temperature': 27.5, 'humidity': 45}
     ]
-    
 
     @classmethod
     def DHT11_temp(cls):
-        print(cls.DHT11['temperature'])
         return cls.DHT11['temperature']
 
     @classmethod
     def DHT11_hum(cls):
-        print(cls.DHT11['humidity'])
         return cls.DHT11['humidity']
 
     @classmethod

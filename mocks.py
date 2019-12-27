@@ -15,11 +15,13 @@ class Mocks():
 
     @classmethod
     def DHT11_temp(cls):
-        pass
+        print(cls.DHT11['temperature'])
+        return cls.DHT11['temperature']
 
     @classmethod
     def DHT11_hum(cls):
-        pass
+        print(cls.DHT11['humidity'])
+        return cls.DHT11['humidity']
 
     @classmethod
     def all(cls):

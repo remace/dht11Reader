@@ -1,0 +1,25 @@
+{% extends 'layouts/default.html' %} {% block body%}
+<h1>statistiques enregistrées</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>temperature</th>
+            <th>humidity</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for post in posts %}
+        <tr>
+            <td>{{post.id}}</td>
+            <td>{{post.temperature}}</td>
+            <td>{{post.humidity}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<p> pour l'instant cette fonctionnalité n'est pas complètement implémentée</p>
+{% endblock %}

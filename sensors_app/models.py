@@ -4,7 +4,6 @@ import datetime
 
 from .views import app
 
-
 db = SQLAlchemy(app)
 
 

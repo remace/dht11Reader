@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 from flask import Flask, render_template
 from . import models
-
+import Adafruit_DHT
 
 app = Flask(__name__)
 app.config.from_object('config')
@@ -9,12 +9,20 @@ app.config.from_object('config')
 
 @app.route('/')
 def home():
-    temperature = 27.5
-    humidity = 45
-    return render_template('pages/home.html', temperature=temperature, humidity=humidity)
+    sensor = Adafruit_DHT.AM2302
+    humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
+    return render_template('pages/home.html',
+                           temperature=temperature,
+                           humidity=humidity)
 
 
-@app.route('/stats')
+@app.route('/admin/')
+def admin():
+    sensors = models.Sensor.query.all()
+    return render_template('pages/admin.html', sensors=sensors)
+
+
+@app.route('/stats/')
 def stats():
     posts = models.Statement.query.all()
     if posts != []:
